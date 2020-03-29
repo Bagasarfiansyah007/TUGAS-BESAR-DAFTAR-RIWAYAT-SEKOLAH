@@ -16,7 +16,7 @@ struct list_Child{
     address2 last;
 };
 void createList(list_Child &L);
-void createElmt(address2 &P, infotypeChild jenjang);
+void createElmt(address2 &P);
 void insertFirst(list_Child &L, address2 P);
 void insertLast(list_Child &L, address2 P);
 void insertAfter(list_Child &L, address2 Prec, address2 P);
