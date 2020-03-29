@@ -24,6 +24,7 @@ void deletefirst(list_Child &L, address2 &P);
 void deleteLast(list_Child &L, address2 &P);
 void deleteAfter(list_Child &L, address2 Prec, address2 &P);
 void printList(list_Child L);
+address2 searchJenjang(list_Child L, infotypeChild jenjang);
 
 
 
