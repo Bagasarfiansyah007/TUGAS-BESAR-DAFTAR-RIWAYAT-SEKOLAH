@@ -3,7 +3,9 @@ void createList(list_Child &L){
     first(L)=NULL;
     last(L)=NULL;
 }
-void createElmt(address2 &P, infotypeChild jenjang){
+void createElmt(address2 &P){
+    string jenjang;
+    cin>>jenjang;
     P = new elmListChild;
     info(P) = jenjang;
     next(P) = NULL;
