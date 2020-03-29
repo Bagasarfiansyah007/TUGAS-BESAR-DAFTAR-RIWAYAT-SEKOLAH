@@ -23,7 +23,7 @@ struct orang {
     int umur;
     string alamat;
     char jk;
-    string riwayat_P;
+    string riwayat_p;
 };
 
 // alamat kotak
@@ -47,9 +47,14 @@ struct listParent {
 
 
 void createlistparent(listParent &l);
+bool isempty(listParent l);
 void createlementparent(address1 &p);
-void insertfirst(listParent &l,address1 p);
-void deleteelmt(listParent &l,address1 &p);
+void insertfirstparent(listParent &l,address1 p);
+void deleteelmtparent(listParent &l,address1 &p);
+void deletelastparent(listParent &l,address1 &p);
+void deletefirstparent(listParent &l,address1 &p);
+void carielementparent(listParent &l);
+void tampildataparent(listParent l);
 
 
 #endif // H_PARENT_H_INCLUDED
