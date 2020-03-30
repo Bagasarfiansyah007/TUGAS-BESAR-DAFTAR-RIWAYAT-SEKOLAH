@@ -64,20 +64,20 @@ void createlementparent(address1 &p) {
     cout << endl;
 
     cout << "* pilih jenis kelamin : " << endl;
-    cout << "1.Laki Laki" << endl << "2.Perempuan" << endl;
-    cout << "inputkan jenis kelamin : ";
+    cout << "  1.Laki Laki" << endl << "  2.Perempuan" << endl;
+    cout << "inputkan jenis kelamin        : ";
     int nomor;
     cin >> nomor;
     if (nomor == 1) {
-        info(p).jk = 'L';
+        info(p).jk = "L";
     } else if ( nomor == 2) {
-        info(p).jk = 'P';
+        info(p).jk = "P";
     } else {
         cout << "Pilihan Tidak ada !!";
     }
     cout << endl;
 
-    cout << "* input riwayat pendidikan             : ";
+    cout << "* input riwayat pendidikan    : ";
     cin >> riwayat_p;
     info(p).riwayat_p = riwayat_p;
     cout << endl;
@@ -130,36 +130,49 @@ void deletefirstparent(listParent &l,address1 &p) {
     }
 }
 
-void deleteelmtparent(listParent &l,address1 &p){
-    address prec;
-    int x;
-
-    cout << "pilih data yang ingin di hapus berdasarkan : "
-    cin >> x
-    prec = first(l);
-    while (next(prec) != NIL && info(prec).id != x) {
+address1 carielementparent(listParent l,int x) {
+    address1 p;
+    p = first(l);
+    while (next(p) != NIL && info(p).id != x) {
         p = next(p);
     }
 
-    if (info(prec).id == x) {
-        p = prec;
+    if (info(p).id == x){
+        return p;
     } else {
-        cout << "data tidak ada";
+        return NIL;
     }
+}
+
+void deleteelmtparent(listParent &l,address1 &p){
+    address1 prec,q;
+    int x;
 
     if (isempty(l) == true) {
-        cout << "data kosong" << endl;
+        cout << "data kosong" <<endl;
         p = NIL;
-    } else if (next(last(l)) == NIL) {
-        deletelastparent(l,p);
-    } else if (prev(first(l)) == NIL){
-        deletefirstparent(l,p);
     } else {
-        prec = next(prec);
-        prev(next(p)) = prec;
-        prev(prec) = prev(p);
-        next(p) = NIL;
-        prev(p) = NIL;
+
+        cout << "Masukan Data yang Ingin di hapus : ";
+        cin >> x;
+
+        prec = carielementparent(l,x);
+
+        if (next(prec) == NIL){
+            p = prec;
+            deletelastparent(l,p);
+        } else if (prev(prec) == NIL) {
+            p = prec;
+            deletefirstparent(l,p);
+        } else {
+            p = prec;
+            prec = next(p);
+            q = prev(p);
+            next(q) = prec;
+            prev(prec) = q;
+            next(p) = NIL;
+            prev(p) = NIL;
+        }
     }
 }
 
@@ -169,15 +182,8 @@ void tampildataparent(listParent l){
     int i = 0;
     while (p != NIL){
         i = i + 1;
-        cout << i <<"id alumni                 : " << info(p).id << endl;
-        cout      <<" Nama alumni               : " << info(p).nama << endl;
-        cout      <<" Tanggal lahir alumni      : " << info(p).tgl_l << endl;
-        cout      <<" Tempat lahir alumni       : " << info(p).tempat_l << endl;
-        cout      <<" Tahun lahir alumni        : " << info(p).tahun_l << endl;
-        cout      <<" umur alumni               : " << info(p).umur << endl;
-        cout      <<" alamat rumah alumni       : " << info(p).alamat << endl;
-        cout      <<" Jenis kelamin alumni      : " << info(p).id << endl;
-        cout      <<" Riwayat pendidikan alumni : " << info(p).riwayat_p << endl;
+        cout << "| No :"<< " " << i << " "<<"| Id alumni :" << " " <<info(p).id<< " " <<"| TTL :" <<" " << info(p).tgl_l<<","<<info(p).tempat_l<<" "<<info(p).tahun_l << " ";
+        cout << "| Umur :"<<" " << info(p).umur << " " << "| alamat :" << " " << info(p).alamat << " "<< "| riwayat_p :" << " " << info(p).riwayat_p  << " "<< endl;
         p = next(p);
     }
 }
