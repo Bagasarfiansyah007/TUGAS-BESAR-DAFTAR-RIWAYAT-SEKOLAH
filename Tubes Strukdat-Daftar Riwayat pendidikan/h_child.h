@@ -1,5 +1,5 @@
-#ifndef H_CHILD_H_INCLUDED
-#define H_CHILD_H_INCLUDED
+#ifndef CHILD_H_INCLUDED
+#define CHILD_H_INCLUDED
 #define first(L) L.first
 #define last(L) L.last
 #define info(P) P->info
@@ -17,15 +17,12 @@ struct list_Child{
 };
 void createList(list_Child &L);
 void createElmt(address2 &P);
-void insertFirst(list_Child &L, address2 P);
 void insertLast(list_Child &L, address2 P);
-void insertAfter(list_Child &L, address2 Prec, address2 P);
 void deletefirst(list_Child &L, address2 &P);
 void deleteLast(list_Child &L, address2 &P);
-void deleteAfter(list_Child &L, address2 Prec, address2 &P);
+void deleteElmt(list_Child &L, address2 Prec);
 void printList(list_Child L);
 address2 searchJenjang(list_Child L, infotypeChild jenjang);
 
 
-
-#endif // H_CHILD_H_INCLUDED
+#endif // CHILD_H_INCLUDED
