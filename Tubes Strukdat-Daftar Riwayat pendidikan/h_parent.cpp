@@ -80,9 +80,9 @@ void createlementparent(address1 &p) {
     cout << "* input riwayat pendidikan    : ";
     cin >> riwayat_p;
     info(p).riwayat_p = riwayat_p;
-    cout << endl;
+    cout << endl << endl;
 
-
+    cout << "Data Berhasil Ter input !!" << endl;
 
 }
 
@@ -149,30 +149,38 @@ void deleteelmtparent(listParent &l,address1 &p){
     int x;
 
     if (isempty(l) == true) {
-        cout << "data kosong" <<endl;
+        cout << "data kosong" <<endl << endl;
         p = NIL;
     } else {
 
-        cout << "Masukan Data yang Ingin di hapus : ";
+        cout << "jika ingin membatalkan ketik -1 " << endl << endl;
+        cout << "Masukan Data yang Ingin di hapus berdasarkan id alumni: ";
         cin >> x;
 
-        prec = carielementparent(l,x);
+        if (x != -1) {
+            prec = carielementparent(l,x);
 
-        if (next(prec) == NIL){
-            p = prec;
-            deletelastparent(l,p);
-        } else if (prev(prec) == NIL) {
-            p = prec;
-            deletefirstparent(l,p);
+            if (next(prec) == NIL){
+                p = prec;
+                deletelastparent(l,p);
+            } else if (prev(prec) == NIL) {
+                p = prec;
+                deletefirstparent(l,p);
+            } else {
+                p = prec;
+                prec = next(p);
+                q = prev(p);
+                next(q) = prec;
+                prev(prec) = q;
+                next(p) = NIL;
+                prev(p) = NIL;
+            }
+            cout << "data dengan id " << x << " Terhapus !!" << endl;
         } else {
-            p = prec;
-            prec = next(p);
-            q = prev(p);
-            next(q) = prec;
-            prev(prec) = q;
-            next(p) = NIL;
-            prev(p) = NIL;
+            cout << endl;
+            cout << "anda keluar dari menu !!" << endl;
         }
+
     }
 }
 
@@ -180,10 +188,11 @@ void tampildataparent(listParent l){
     address1 p;
     p = first(l);
     int i = 0;
+    cout << "============================== Tampil Semua data alumni ==============================" << endl << endl;
     while (p != NIL){
         i = i + 1;
         cout << "| No :"<< " " << i << " "<<"| Id alumni :" << " " <<info(p).id<< " " <<"| TTL :" <<" " << info(p).tgl_l<<","<<info(p).tempat_l<<" "<<info(p).tahun_l << " ";
-        cout << "| Umur :"<<" " << info(p).umur << " " << "| alamat :" << " " << info(p).alamat << " "<< "| riwayat_p :" << " " << info(p).riwayat_p  << " "<< endl;
+        cout << "| Umur :"<<" " << info(p).umur << " " << "| alamat :" << " " << info(p).alamat << " "<< "| riwayat_p :" << " " << info(p).riwayat_p  << " |"<< endl;
         p = next(p);
     }
 }
