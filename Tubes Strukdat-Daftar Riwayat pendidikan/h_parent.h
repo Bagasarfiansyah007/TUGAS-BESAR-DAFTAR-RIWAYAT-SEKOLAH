@@ -12,6 +12,7 @@
 
 using namespace std;
 
+const int n = 100;
 // tipe bentukan data yang digunakan
 
 struct orang {
@@ -22,14 +23,18 @@ struct orang {
     int tahun_l;
     int umur;
     string alamat;
-    char jk;
+    string jk;
     string riwayat_p;
+};
+
+struct user {
+    string username;
+    string password;
 };
 
 // alamat kotak
 
 typedef struct elmListParent * address1;
-
 //Box kotaknya dari parent,relasi dan child
 
 struct elmListParent{
@@ -53,7 +58,7 @@ void insertfirstparent(listParent &l,address1 p);
 void deleteelmtparent(listParent &l,address1 &p);
 void deletelastparent(listParent &l,address1 &p);
 void deletefirstparent(listParent &l,address1 &p);
-void carielementparent(listParent &l);
+address1 carielementparent(listParent l,int x);
 void tampildataparent(listParent l);
 
 
