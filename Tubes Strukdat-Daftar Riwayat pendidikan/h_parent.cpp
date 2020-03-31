@@ -160,12 +160,16 @@ void deleteelmtparent(listParent &l,address1 &p){
         if (x != -1) {
             prec = carielementparent(l,x);
 
-            if (next(prec) == NIL){
+            if (prec == NIL) {
+                cout << "data tidak ada !!" << endl;
+            } else if (next(prec) == NIL){
                 p = prec;
                 deletelastparent(l,p);
+                cout << "data dengan id " << x << " Terhapus !!" << endl;
             } else if (prev(prec) == NIL) {
                 p = prec;
                 deletefirstparent(l,p);
+                cout << "data dengan id " << x << " Terhapus !!" << endl;
             } else {
                 p = prec;
                 prec = next(p);
@@ -174,8 +178,8 @@ void deleteelmtparent(listParent &l,address1 &p){
                 prev(prec) = q;
                 next(p) = NIL;
                 prev(p) = NIL;
+                cout << "data dengan id " << x << " Terhapus !!" << endl;
             }
-            cout << "data dengan id " << x << " Terhapus !!" << endl;
         } else {
             cout << endl;
             cout << "anda keluar dari menu !!" << endl;
@@ -192,7 +196,7 @@ void tampildataparent(listParent l){
     while (p != NIL){
         i = i + 1;
         cout << "| No :"<< " " << i << " "<<"| Id alumni :" << " " <<info(p).id<< " " <<"| TTL :" <<" " << info(p).tgl_l<<","<<info(p).tempat_l<<" "<<info(p).tahun_l << " ";
-        cout << "| Umur :"<<" " << info(p).umur << " " << "| alamat :" << " " << info(p).alamat << " "<< "| riwayat_p :" << " " << info(p).riwayat_p  << " |"<< endl;
+        cout << "| Umur :"<<" " << info(p).umur << " " << "| alamat :" << " " << info(p).alamat << " " << "| Jenis Kelamin :" << " " << info(p).jk  << " " << "| riwayat_p :" << " " << info(p).riwayat_p  << " |"<< endl;
         p = next(p);
     }
 }
