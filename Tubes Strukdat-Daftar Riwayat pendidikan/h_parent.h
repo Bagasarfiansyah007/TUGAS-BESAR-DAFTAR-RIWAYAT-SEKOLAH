@@ -3,11 +3,11 @@
 
 
 #include <iostream>
-#define info(A) A->info
-#define next(A) A->next
-#define prev(A) A->prev
-#define first(A) A.first
-#define last(A) A.last
+#define infoP(A) A->infoP
+#define nextP(A) A->nextP
+#define prevP(A) A->prevP
+#define firstP(A) A.firstP
+#define lastP(A) A.lastP
 #define NIL NULL
 
 using namespace std;
@@ -24,7 +24,6 @@ struct orang {
     int umur;
     string alamat;
     string jk;
-    string riwayat_p;
 };
 
 struct user {
@@ -38,16 +37,16 @@ typedef struct elmListParent * address1;
 //Box kotaknya dari parent,relasi dan child
 
 struct elmListParent{
-    orang info;
-    address1 next;
-    address1 prev;
+    orang infoP;
+    address1 nextP;
+    address1 prevP;
 };
 
 //List kotaknya dari parent,relasi dan child
 
 struct listParent {
-    address1 first;
-    address1 last;
+    address1 firstP;
+    address1 lastP;
 };
 
 
