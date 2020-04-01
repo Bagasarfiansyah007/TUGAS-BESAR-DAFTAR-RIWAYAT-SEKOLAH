@@ -6,6 +6,7 @@
 #define last(L) L.last
 #define info(P) P->info
 #define next(P) P->next
+#define NIL NULL
 
 using namespace std;
 
@@ -19,13 +20,13 @@ struct list_Child{
     address2 first;
     address2 last;
 };
-void createList(list_Child &L);
-void createElmt(address2 &P);
-void insertLast(list_Child &L, address2 P);
-void deletefirst(list_Child &L, address2 &P);
-void deleteLast(list_Child &L, address2 &P);
-void deleteAfter(list_Child &L, address2 Prec, address2 &P);
-void printList(list_Child L);
+void createListchild(list_Child &L);
+void createElmtchild(address2 &P);
+void insertLastchild(list_Child &L, address2 P);
+void deletefirstchild(list_Child &L, address2 &P);
+void deleteLastchild(list_Child &L, address2 &P);
+void deleteElmtchild(list_Child &L,address2 &P);
+void printListchild(list_Child L);
 address2 searchJenjang(list_Child L, string jenjang);
 
 
